@@ -5,9 +5,9 @@ echo "Extracting InfluxDB..."
 #tar xvfz influxdb-0.13.0_linux_amd64.tar.gz
 
 echo "Preparing InfluxDB..."
-cd influxdb
-export GOROOT=$(readlink -nf /var/vcap/packages/golang)
-export GOPATH=$PWD
-export GOBIN=${BOSH_INSTALL_TARGET}
-export PATH=$PATH:$GOROOT/bin
-go install github.com/influxdata/influxdb/cmd/influxd
+#cd influxdb
+#export GOROOT=$(readlink -nf /var/vcap/packages/golang)
+#export GOPATH=$PWD
+#export GOBIN=${BOSH_INSTALL_TARGET}
+#export PATH=$PATH:$GOROOT/bin
+#go install github.com/influxdata/influxdb/cmd/influxd

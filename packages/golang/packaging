@@ -3,10 +3,10 @@ set -e
 
 echo "Extracting go..."
 #tar xzf golang/go1.7.src.tar.gz
-tar xzf golang/go1.0.3.src.tar.gz
+#tar xzf golang/go1.0.3.src.tar.gz
 
 echo "Building go..."
-cd go/src
-./all.bash
-cd ../..
-cp -R go/* ${BOSH_INSTALL_TARGET}
+#cd go/src
+#./all.bash
+#cd ../..
+#cp -R go/* ${BOSH_INSTALL_TARGET}
