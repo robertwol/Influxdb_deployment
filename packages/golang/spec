@@ -3,5 +3,6 @@ name: golang
 
 dependencies:
   - golang1.4
+  
 files:
   - golang/go1.7.linux-amd64.tar.gz
