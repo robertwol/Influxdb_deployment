@@ -1,7 +1,7 @@
 # abort script on any command that exits with a non zero value
 set -e -x
 
-#sleep 10800
+sleep 1200  #60sec * 20 min = 1200s
 
 echo "Extracting go..."
 ls -als
