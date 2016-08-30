@@ -4,7 +4,7 @@ set -e -x
 sleep 600  #60sec * 20 min = 1200s
 
 echo "Extracting golang 1.4..."
-tar xvfz golang1.4/go1.4.linux-amd64.tar.gz
+tar xvfz golang/go1.4.linux-amd64.tar.gz
 
 echo "Building go 1.4 ..."
 cd go/src
