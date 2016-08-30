@@ -2,10 +2,9 @@
 set -e
 
 echo "Extracting go..."
-#tar xzf golang/go1.7.src.tar.gz
-#tar xzf golang/go1.0.3.src.tar.gz
+tar xvfz golang/go1.7.linux-amd64.tar.gz
 
-echo "Building go..."
+#echo "Building go..."
 #cd go/src
 #./all.bash
 #cd ../..

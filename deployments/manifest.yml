@@ -50,7 +50,7 @@ update:
   update_watch_time: 30000-600000
   max_in_flight: 3
 
-properties:
+properties: {}
   #influxdb:
     #admin: foo@bar.com
   #  servername: 10.244.1.2

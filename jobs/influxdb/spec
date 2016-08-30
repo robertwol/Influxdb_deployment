@@ -4,15 +4,15 @@ templates:
   influx.conf.erb: config/influx.conf
 
 packages:
-  influxdb
+  - influxdb
 
 properties:
   influxdb.port:
     description: TCP port influxdb server listen on
     default: 8086
-  influxdb.admin:
-    description: Email address of server administrator
-    default: webmaster@example.com
-  influxdb.servername:
-    description: Name of the virtual server
-      default: 127.0.0.1
+#  influxdb.admin:
+#    description: Email address of server administrator
+#    default: webmaster@example.com
+#  influxdb.servername:
+#    description: Name of the virtual server
+#      default: 127.0.0.1

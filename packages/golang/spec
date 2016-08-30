@@ -4,5 +4,4 @@ name: golang
 #dependencies:
 
 files:
-#  golang/go1.7.src.tar.gz
-  golang/go1.7.linux-amd64.tar.gz
+  - golang/go1.7.linux-amd64.tar.gz
