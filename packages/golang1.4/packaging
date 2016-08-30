@@ -7,8 +7,10 @@ echo "Extracting golang 1.4..."
 tar xvfz golang/go1.4.linux-amd64.tar.gz
 
 echo "Building go 1.4 ..."
+sleep 600  #60sec * 20 min = 1200s
+
 cd go/src
 ./all.bash
 cd ../..
 cp -R go/* ${BOSH_INSTALL_TARGET}
-sleep 600 
+#sleep 600
