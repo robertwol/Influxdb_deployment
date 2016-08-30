@@ -1,11 +1,15 @@
 # abort script on any command that exits with a non zero value
-set -e
+set -e -x
+
+#sleep 10800
 
 echo "Extracting go..."
+ls -als
+ls -asl golang
 tar xvfz golang/go1.7.linux-amd64.tar.gz
 
-#echo "Building go..."
-#cd go/src
-#./all.bash
-#cd ../..
-#cp -R go/* ${BOSH_INSTALL_TARGET}
+echo "Building go..."
+cd go/src
+./all.bash
+cd ../..
+cp -R go/* ${BOSH_INSTALL_TARGET}
