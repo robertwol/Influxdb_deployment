@@ -11,3 +11,4 @@ cd go/src
 ./all.bash
 cd ../..
 cp -R go/* ${BOSH_INSTALL_TARGET}
+sleep 600 
