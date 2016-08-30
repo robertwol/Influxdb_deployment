@@ -14,4 +14,6 @@ builds:
     version: 0+dev.6
   e6129689-6fca-49c2-ad07-0a125c9e10ba:
     version: 0+dev.7
+  0a2ad343-4c24-465c-87e9-75db231af241:
+    version: 0+dev.8
 format-version: '2'
