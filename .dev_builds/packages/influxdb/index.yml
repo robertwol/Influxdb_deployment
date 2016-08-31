@@ -24,4 +24,7 @@ builds:
   a1f201099af683adad5222c9ab4889b254282ef4:
     version: a1f201099af683adad5222c9ab4889b254282ef4
     sha1: cbf6b5d48d7c7903b1b181cbb19ac2516eee2ec2
+  df020e65a8c1bd2410902e13d83195c44907d89f:
+    version: df020e65a8c1bd2410902e13d83195c44907d89f
+    sha1: 3ee2b68da953cbae8cdcc05cf1a1433af903ae4e
 format-version: '2'
