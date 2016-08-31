@@ -18,4 +18,7 @@ builds:
   decdeba834ad6c9ee01f8b56a8c84fac89a4a3d7:
     version: decdeba834ad6c9ee01f8b56a8c84fac89a4a3d7
     sha1: 8310d64a3c83f7cc2ddfb2564b9a7413280b6df6
+  84d5cb9221b3a26acc4e963917d6bae9e691f9dc:
+    version: 84d5cb9221b3a26acc4e963917d6bae9e691f9dc
+    sha1: '085241fe4b62a03ec986cc51af63382c2f0c728e'
 format-version: '2'
