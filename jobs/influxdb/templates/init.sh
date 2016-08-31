@@ -1,4 +1,6 @@
 #!/bin/bash
+# This script is now being modified for Bosh deployment
+
 ### BEGIN INIT INFO
 # Provides:          influxd
 # Required-Start:    $all
@@ -12,7 +14,19 @@
 
 # Command-line options that can be set in /etc/default/influxdb.  These will override
 # any config file values.
+
+JOB_NAME=influxdb
+
+RUN_DIR=/var/vcap/sys/run/$JOB_NAME
+LOG_DIR=/var/vcap/sys/log/$JOB_NAME
+PIDFILE=$RUN_DIR/$JOB_NAME.pid
+
 DEFAULT=/etc/default/influxdb
+
+#mkdir -p $RUN_DIR $LOG_DIR
+#chown -R vcap:vcap $RUN_DIR $LOG_DIR
+#exec 1>> $LOG_DIR/$JOB_NAME.stdout.log
+#exec 2>> $LOG_DIR/$JOB_NAME.stderr.log
 
 # Daemon options
 INFLUXD_OPTS=
@@ -147,6 +161,15 @@ function start() {
     fi
     log_failure_msg "$NAME process was unable to start"
     exit 1
+
+
+
+    # Tell monit that everything is ok :)
+    #echo 1 >> $PIDFILE
+    #echo $$ > $PIDFILE
+    # exec somecommand \
+    #>>  $LOG_DIR/web_ui.stdout.log \
+    #  2>> $LOG_DIR/web_ui.stderr.log
 }
 
 function stop() {
@@ -182,6 +205,10 @@ function stop() {
         fi
     fi
     log_success_msg "$NAME process already stopped"
+
+
+    #kill -9 `cat $PIDFILE`
+    # rm -f $PIDFILE
 }
 
 function restart() {
