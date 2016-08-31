@@ -48,4 +48,6 @@ builds:
     version: 0+dev.23
   0cec06f6-d01b-4cce-8610-17072758d034:
     version: 0+dev.24
+  7570fd6a-049d-4dd1-b801-0195d3fd0dc9:
+    version: 0+dev.25
 format-version: '2'
