@@ -6,7 +6,7 @@ tar xvfz influxdb/influxdb-0.13.0_linux_amd64.tar.gz
 
 echo "Preparing InfluxDB..."
 cp -a influxdb-0.13.0-1 ${BOSH_INSTALL_TARGET}
-cp -a influxdb/init.sh ${BOSH_INSTALL_TARGET}/bin
+#cp -a influxdb/init.sh ${BOSH_INSTALL_TARGET}/bin
 
 #pwd
 #ls
