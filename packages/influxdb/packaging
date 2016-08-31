@@ -4,21 +4,18 @@ set -e
 echo "Extracting InfluxDB..."
 tar xvfz influxdb/influxdb-0.13.0_linux_amd64.tar.gz
 
-cp -a influxdb-0.13.0-1 ${BOSH_INSTALL_TARGET}
-pwd
-ls
-sleep 1000
-cp -a influxdb/init.sh ${BOSH_INSTALL_TARGET}
-
-pwd
-ls
-sleep 1000
-
-
 echo "Preparing InfluxDB..."
-cd influxdb
-export GOROOT=$(readlink -nf /var/vcap/packages/golang)
-export GOPATH=$PWD
-export GOBIN=${BOSH_INSTALL_TARGET}
-export PATH=$PATH:$GOROOT/bin
+cp -a influxdb-0.13.0-1 ${BOSH_INSTALL_TARGET}
+cp -a influxdb/init.sh ${BOSH_INSTALL_TARGET}/bin
+
+#pwd
+#ls
+#sleep 1000
+
+
+#cd influxdb
+#export GOROOT=$(readlink -nf /var/vcap/packages/golang)
+#export GOPATH=$PWD
+#export GOBIN=${BOSH_INSTALL_TARGET}
+#export PATH=$PATH:$GOROOT/bin
 #go install github.com/influxdata/influxdb/cmd/influxd
