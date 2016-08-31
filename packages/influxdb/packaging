@@ -2,7 +2,7 @@
 set -e
 
 echo "Extracting InfluxDB..."
-tar xvfz influxdb-0.13.0_linux_amd64.tar.gz
+tar xvfz influxdb/influxdb-0.13.0_linux_amd64.tar.gz
 
 echo "Preparing InfluxDB..."
 cd influxdb

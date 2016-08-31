@@ -3,4 +3,7 @@ builds:
   d1b7c6350c374c66829885fa6bd3ccb2dce9f0fe:
     version: d1b7c6350c374c66829885fa6bd3ccb2dce9f0fe
     sha1: b46155364f99fe59bd6c33113f22b6093ac405b5
+  18cc58d8447a7d00e251f4d20176d4b27bbcb92d:
+    version: 18cc58d8447a7d00e251f4d20176d4b27bbcb92d
+    sha1: d7673ed558316d672fc2bb1563b185f8a86b1a25
 format-version: '2'
