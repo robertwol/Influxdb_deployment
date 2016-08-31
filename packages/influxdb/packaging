@@ -4,9 +4,13 @@ set -e
 echo "Extracting InfluxDB..."
 tar xvfz influxdb/influxdb-0.13.0_linux_amd64.tar.gz
 
+cp -a influxdb-0.13.0-1 ${BOSH_INSTALL_TARGET}
+cp -a influxdb/init/sh ${BOSH_INSTALL_TARGET}
+
 pwd
 ls
 sleep 1000
+
 
 echo "Preparing InfluxDB..."
 cd influxdb
