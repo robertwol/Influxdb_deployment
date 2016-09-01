@@ -9,12 +9,12 @@ packages:
 properties:
   influxdb.adminport:
     description: Controls the availability of the built-in, web-based admin interface
-    default: 666
-#    default: 8083
+#    default: 666
+    default: 8083
   influxdb.httpport:
     description: Controls how the HTTP endpoints are configured
-    default: 999
-#   default: 8086
+#    default: 999
+   default: 8086
   influxdb.https-enabled:
     description: Enable HTTPS
     default: false
