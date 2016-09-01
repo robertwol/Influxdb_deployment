@@ -62,4 +62,6 @@ builds:
     version: 0+dev.30
   ad036cbb-8f24-4f79-ac38-df6611836912:
     version: 0+dev.31
+  f742f89c-0006-4804-8789-e96aa5df977e:
+    version: 0+dev.32
 format-version: '2'
