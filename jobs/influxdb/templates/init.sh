@@ -29,6 +29,10 @@ chown -R vcap:vcap $RUN_DIR $LOG_DIR
 exec 1>> $LOG_DIR/$JOB_NAME.stdout.log
 exec 2>> $LOG_DIR/$JOB_NAME.stderr.log
 
+#Create the data folder, where InfluxDB will store data
+mkdir -p /var/vcap/store/influxdb
+chown -R vcap:vcap /var/vcap/store/influxdb
+
 # Daemon options
 INFLUXD_OPTS=
 
