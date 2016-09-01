@@ -14,7 +14,7 @@ properties:
   influxdb.httpport:
     description: Controls how the HTTP endpoints are configured
 #    default: 999
-   default: 8086
+    default: 8086
   influxdb.https-enabled:
     description: Enable HTTPS
     default: false
