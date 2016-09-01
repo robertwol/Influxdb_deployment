@@ -92,6 +92,9 @@ fi
 #    mkdir -p $(dirname $STDERR)
 #fi
 
+$STDOUT = $LOG_DIR/$JOB_NAME.stdout.log
+$STDERR = $LOG_DIR/$JOB_NAME.stderr.log
+
 # Override init script variables with DEFAULT values
 #if [ -r $DEFAULT ]; then
 #    source $DEFAULT
@@ -157,9 +160,12 @@ function start() {
             # Above is starting the dservice
             # Tell monit that everything is ok :)
             #
+
+
             # exec somecommand \
             #  >>  $LOG_DIR/web_ui.stdout.log \
             #  2>> $LOG_DIR/web_ui.stderr.log
+            #start-stop-daemon --chuid vcap:vcap --start --quiet --pidfile /var/vcap/sys/run/influxdb/influxdb.pid --exec /var/vcap/jobs/influxdb/packages/influxdb/usr/bin/influxd -- -pidfile /var/vcap/sys/run/influxdb/influxdb.pid -config /var/vcap/jobs/influxdb/config/influxdb.conf
     else
         local CMD="$DAEMON -pidfile $PIDFILE -config $CONFIG $INFLUXD_OPTS >>$STDOUT 2>>$STDERR &"
         su -s /bin/sh -c "$CMD" $USER
