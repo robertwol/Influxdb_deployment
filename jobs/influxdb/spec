@@ -1,15 +1,27 @@
 ---
 name: influxdb
 templates:
-  influx.conf.erb: config/influx.conf
+  influxdb.conf.erb: config/influxdb.conf
   init.sh: bin/init.sh
 packages:
   - influxdb
 
 properties:
-  influxdb.port:
-    description: TCP port influxdb server listen on
+  influxdb.adminport:
+    description: Controls the availability of the built-in, web-based admin interface
+    default: 8083
+  influxdb.httpport:
+    description: Controls how the HTTP endpoints are configured
     default: 8086
+  influxdb.https-enabled:
+    description: Enable HTTPS
+    default: false
+  influxdb.meta-dir:
+    description: Where the metadata/raft database is stored
+    default: /var/lib/influxdb/meta
+  influxdb.data-dir:
+    description: Where the actual shard data for InfluxDB lives
+    default: /var/lib/influxdb/data
 #  influxdb.admin:
 #    description: Email address of server administrator
 #    default: webmaster@example.com

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e -x
 # This script is now being modified for Bosh deployment
 
 ### BEGIN INIT INFO
@@ -23,10 +24,10 @@ PIDFILE=$RUN_DIR/$JOB_NAME.pid
 
 DEFAULT=/etc/default/influxdb
 
-#mkdir -p $RUN_DIR $LOG_DIR
-#chown -R vcap:vcap $RUN_DIR $LOG_DIR
-#exec 1>> $LOG_DIR/$JOB_NAME.stdout.log
-#exec 2>> $LOG_DIR/$JOB_NAME.stderr.log
+mkdir -p $RUN_DIR $LOG_DIR
+chown -R vcap:vcap $RUN_DIR $LOG_DIR
+exec 1>> $LOG_DIR/$JOB_NAME.stdout.log
+exec 2>> $LOG_DIR/$JOB_NAME.stderr.log
 
 # Daemon options
 INFLUXD_OPTS=
@@ -35,33 +36,37 @@ INFLUXD_OPTS=
 NAME=influxdb
 
 # User and group
-USER=influxdb
-GROUP=influxdb
+#default: influxdb but trying vcap
+USER=vcap
+GROUP=vcap
 
 # Check for sudo or root privileges before continuing
-if [ "$UID" != "0" ]; then
-    echo "You must be root to run this script"
-    exit 1
-fi
+#if [ "$UID" != "0" ]; then
+#    echo "You must be root to run this script"
+#    exit 1
+#fi
 
 # Daemon name, where is the actual executable If the daemon is not
 # there, then exit.
-DAEMON=/usr/bin/influxd
+#DAEMON=/usr/bin/influxd
+DAEMON=/var/vcap/jobs/influxdb/packages/influxdb/usr/bin/influxd
 if [ ! -x $DAEMON ]; then
     echo "Executable $DAEMON does not exist!"
     exit 5
 fi
 
 # Configuration file
-CONFIG=/etc/influxdb/influxdb.conf
+#CONFIG=/etc/influxdb/influxdb.conf
+CONFIG=/var/vcap/jobs/influxdb/config/influxdb.conf
 
-# PID file for the daemon
-PIDFILE=/var/run/influxdb/influxd.pid
+# PID file for the daemon - DEFINED ABOVE
+#PIDFILE=/var/run/influxdb/influxd.pid
 PIDDIR=`dirname $PIDFILE`
 if [ ! -d "$PIDDIR" ]; then
     mkdir -p $PIDDIR
-    chown $USER:$GROUP $PIDDIR
+#    chown $USER:$GROUP $PIDDIR
 fi
+chown $USER:$GROUP $PIDDIR
 
 # Max open files
 OPEN_FILE_LIMIT=65536
@@ -71,26 +76,26 @@ if [ -r /lib/lsb/init-functions ]; then
 fi
 
 # Logging
-if [ -z "$STDOUT" ]; then
-    STDOUT=/dev/null
-fi
+#if [ -z "$STDOUT" ]; then
+#    STDOUT=/dev/null
+#fi
 
-if [ ! -f "$STDOUT" ]; then
-    mkdir -p $(dirname $STDOUT)
-fi
+#if [ ! -f "$STDOUT" ]; then
+#    mkdir -p $(dirname $STDOUT)
+#fi
 
-if [ -z "$STDERR" ]; then
-    STDERR=/var/log/influxdb/influxd.log
-fi
+#if [ -z "$STDERR" ]; then
+#    STDERR=/var/log/influxdb/influxd.log
+#fi
 
-if [ ! -f "$STDERR" ]; then
-    mkdir -p $(dirname $STDERR)
-fi
+#if [ ! -f "$STDERR" ]; then
+#    mkdir -p $(dirname $STDERR)
+#fi
 
 # Override init script variables with DEFAULT values
-if [ -r $DEFAULT ]; then
-    source $DEFAULT
-fi
+#if [ -r $DEFAULT ]; then
+#    source $DEFAULT
+#fi
 
 function log_failure_msg() {
     echo "$@" "[ FAILED ]"
@@ -116,6 +121,11 @@ function start() {
             return 0
         fi
     else
+
+      #some recommendation for PISFILE to be check if there is a problem
+      #echo 1 >> $PIDFILE
+      #echo $$ > $PIDFILE
+
         su -s /bin/sh -c "touch $PIDFILE" $USER &>/dev/null
         if [ $? -ne 0 ]; then
             log_failure_msg "$PIDFILE not writable, check permissions"
@@ -144,6 +154,12 @@ function start() {
             -pidfile $PIDFILE \
             -config $CONFIG \
             $INFLUXD_OPTS >>$STDOUT 2>>$STDERR &
+            # Above is starting the dservice
+            # Tell monit that everything is ok :)
+            #
+            # exec somecommand \
+            #  >>  $LOG_DIR/web_ui.stdout.log \
+            #  2>> $LOG_DIR/web_ui.stderr.log
     else
         local CMD="$DAEMON -pidfile $PIDFILE -config $CONFIG $INFLUXD_OPTS >>$STDOUT 2>>$STDERR &"
         su -s /bin/sh -c "$CMD" $USER
@@ -164,12 +180,7 @@ function start() {
 
 
 
-    # Tell monit that everything is ok :)
-    #echo 1 >> $PIDFILE
-    #echo $$ > $PIDFILE
-    # exec somecommand \
-    #>>  $LOG_DIR/web_ui.stdout.log \
-    #  2>> $LOG_DIR/web_ui.stderr.log
+
 }
 
 function stop() {

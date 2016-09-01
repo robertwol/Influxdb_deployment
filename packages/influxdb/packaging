@@ -8,13 +8,14 @@ echo "Preparing InfluxDB..."
 cp -a influxdb-0.13.0-1/* ${BOSH_INSTALL_TARGET}
 #cp -a influxdb/init.sh ${BOSH_INSTALL_TARGET}/bin
 
-echo "Creating 'influxdb' user and group ..."
+#FOLLOWING NEEDS TO BE DONE IN THE PRE-START SCRIPT
+#echo "Creating 'influxdb' user and group ..."
 # User and group for InfluxDB service
-USER=influxdb
-GROUP=influxdb
+#USER=influxdb
+#GROUP=influxdb
 #groupadd $GROUP
 #useradd --no-create-home -G $GROUP $USER
-adduser --system --no-create-home --group $USER
+#adduser --system --no-create-home --group $USER
 
 #pwd
 #ls
