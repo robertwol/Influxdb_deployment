@@ -92,8 +92,8 @@ fi
 #    mkdir -p $(dirname $STDERR)
 #fi
 
-$STDOUT=$LOG_DIR/$JOB_NAME.stdout.log
-$STDERR=$LOG_DIR/$JOB_NAME.stderr.log
+#$STDOUT=$LOG_DIR/$JOB_NAME.stdout.log
+#$STDERR=$LOG_DIR/$JOB_NAME.stderr.log
 
 # Override init script variables with DEFAULT values
 #if [ -r $DEFAULT ]; then
@@ -156,7 +156,9 @@ function start() {
             -- \
             -pidfile $PIDFILE \
             -config $CONFIG \
-            $INFLUXD_OPTS >>$STDOUT 2>>$STDERR &
+            $INFLUXD_OPTS &
+            #>>$STDOUT 2>>$STDERR &
+
             # Above is starting the dservice
             # Tell monit that everything is ok :)
             #
