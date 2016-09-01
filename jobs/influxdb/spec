@@ -20,10 +20,10 @@ properties:
     default: false
   influxdb.meta-dir:
     description: Where the metadata/raft database is stored
-    default: /var/lib/influxdb/meta
+    default: /var/vcap/store/influxdb/meta
   influxdb.data-dir:
     description: Where the actual shard data for InfluxDB lives
-    default: /var/lib/influxdb/data
+    default: /var/vcap/store/influxdb/data
 #  influxdb.admin:
 #    description: Email address of server administrator
 #    default: webmaster@example.com
