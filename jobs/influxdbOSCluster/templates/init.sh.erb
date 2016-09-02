@@ -17,12 +17,12 @@ set -e -x
 # any config file values.
 
 
-export BOSHInstanceName = <%= spec.name %>
-export BOSHInstanceID =  <%= spec.id %>
-export BOSHClusterLead = <% spec.bootstrap %>
-export BOSHInstanceIndex = <%= spec.index %>
-export BOSHInstanceAddress = <%= spec.address %>
-export BOSHInstanceNetwork = <% spec.networks %>
+export BOSHInstanceName=<%= spec.name %>
+export BOSHInstanceID= <%= spec.id %>
+export BOSHClusterLead=<% spec.bootstrap %>
+export BOSHInstanceIndex=<%= spec.index %>
+export BOSHInstanceAddress=<%= spec.address %>
+export BOSHInstanceNetwork=<% spec.networks %>
 
 
 JOB_NAME=influxdbOSCluster
