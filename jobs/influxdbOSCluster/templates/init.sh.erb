@@ -85,7 +85,8 @@ chown $USER:$GROUP $PIDDIR
 OPEN_FILE_LIMIT=65536
 
 if [ -r /lib/lsb/init-functions ]; then
-    source /lib/lsb/init-functions
+  # source /lib/lsb/init-functions
+  . /lib/lsb/init-functions
 fi
 
 # Logging
