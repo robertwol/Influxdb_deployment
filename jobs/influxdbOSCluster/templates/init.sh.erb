@@ -62,7 +62,7 @@ GROUP=vcap
 # Daemon name, where is the actual executable If the daemon is not
 # there, then exit.
 #DAEMON=/usr/bin/influxd
-DAEMON=/var/vcap/jobs/$JOB_NAME/packages/$JOB_NAME/usr/bin/influxd
+DAEMON=/var/vcap/jobs/$JOB_NAME/packages/influxdb/usr/bin/influxd
 if [ ! -x $DAEMON ]; then
     echo "Executable $DAEMON does not exist!"
     exit 5
