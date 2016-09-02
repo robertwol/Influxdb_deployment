@@ -15,9 +15,9 @@ properties:
     description: Controls how the HTTP endpoints are configured
 #    default: 999
     default: 8086
-  influxdb.https-enabled:
-    description: Enable HTTPS
-    default: false
+  #influxdb.https-enabled:
+  #    description: Enable HTTPS
+  #  default: false
   influxdb.meta-dir:
     description: Where the metadata/raft database is stored
     default: /var/vcap/store/influxdb/meta

@@ -149,7 +149,7 @@ reporting-disabled = false
 [admin]
   enabled = true
   bind-address = ":<%= p("influxdb.adminport") %>"
-  https-enabled = <%= p("influxdb.https-enabled") %>
+  https-enabled = true
   https-certificate = "/etc/ssl/influxdb.pem"
 
 ###
