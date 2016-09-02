@@ -2,7 +2,7 @@ name: influxdbOSCluster
 director_uuid: <%= `bosh status --uuid` %>
 
 releases:
-- name: influxdbOSCluster
+- name: influxdb
   version: latest
 
 jobs:
