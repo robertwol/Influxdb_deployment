@@ -1,5 +1,5 @@
 check process influxdb
-  with pidfile /var/vcap/sys/run/influxdbOSCluster/influxdb.pid
+  with pidfile /var/vcap/sys/run/influxdbOSCluster/influxdbOSCluster.pid
   start program "/var/vcap/jobs/influxdbOSCluster/bin/init.sh start" with timeout 60 seconds
   stop program "/var/vcap/jobs/influxdbOSCluster/bin/init.sh stop" with timeout 60 seconds
   group vcap

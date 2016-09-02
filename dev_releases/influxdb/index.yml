@@ -106,4 +106,6 @@ builds:
     version: 0+dev.52
   5ef24151-cc8f-4ff0-91a7-a41ba7afc047:
     version: 0+dev.53
+  b30d67bb-6aea-448f-8f60-bcb473577d4a:
+    version: 0+dev.54
 format-version: '2'
