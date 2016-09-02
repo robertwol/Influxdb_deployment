@@ -1,0 +1,56 @@
+name: influxdb
+director_uuid: <%= `bosh status --uuid` %>
+
+releases:
+- name: influxdb
+  version: latest
+
+jobs:
+- name: influxdb
+  template: influxdb
+  instances: 1
+  resource_pool: common-resource-pool
+  networks:
+    - name: influxdb-network
+      static_ips:
+        - 10.244.1.2
+
+resource_pools:
+- name: common-resource-pool
+  network: influxdb-network
+  size: 1
+  stemcell:
+    name: bosh-warden-boshlite-ubuntu-trusty-go_agent
+    version: latest
+  cloud_properties: {}
+#    name: random
+
+networks:
+- name: influxdb-network
+  type: manual
+  subnets:
+  - range: 10.244.1.0/24
+    gateway: 10.244.1.1
+    static:
+      - 10.244.1.2
+    cloud_properties: {}
+#      name: random
+
+compilation:
+  workers: 1
+  network: influxdb-network
+  reuse_compilation_vms: true
+  cloud_properties: {}
+#    name: random
+
+
+update:
+  canaries: 1
+  canary_watch_time: 30000-240000
+  update_watch_time: 30000-600000
+  max_in_flight: 3
+
+properties: {}
+  #influxdb:
+    #admin: foo@bar.com
+  #  servername: 10.244.1.2
