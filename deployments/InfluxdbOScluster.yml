@@ -2,12 +2,12 @@ name: influxdbOSCluster
 director_uuid: <%= `bosh status --uuid` %>
 
 releases:
-- name: influxdbOSCluster
+- name: influx
   version: latest
 
 jobs:
 - name: influxdb-cluster-node
-  template: influxdb
+  template: influxdbOSCluster
   instances: 3
   resource_pool: influxdb-pool
   networks:
