@@ -98,4 +98,6 @@ builds:
     version: 0+dev.48
   76256e1d-804e-4083-a931-42df8e22368f:
     version: 0+dev.49
+  bec8d138-56bc-461f-9be2-1c85f8d31cd7:
+    version: 0+dev.50
 format-version: '2'
