@@ -39,8 +39,8 @@ exec 1>> $LOG_DIR/$JOB_NAME.stdout.log
 exec 2>> $LOG_DIR/$JOB_NAME.stderr.log
 
 #Create the data folder, where InfluxDB will store data
-mkdir -p /var/vcap/store/influxdb
-chown -R vcap:vcap /var/vcap/store/influxdb
+mkdir -p /var/vcap/store/$JOB_NAME
+chown -R vcap:vcap /var/vcap/store/JOB_NAME
 
 # Daemon options
 INFLUXD_OPTS=
@@ -62,7 +62,7 @@ GROUP=vcap
 # Daemon name, where is the actual executable If the daemon is not
 # there, then exit.
 #DAEMON=/usr/bin/influxd
-DAEMON=/var/vcap/jobs/influxdb/packages/influxdb/usr/bin/influxd
+DAEMON=/var/vcap/jobs/JOB_NAME/packages/influxdb/usr/bin/influxd
 if [ ! -x $DAEMON ]; then
     echo "Executable $DAEMON does not exist!"
     exit 5
@@ -70,7 +70,7 @@ fi
 
 # Configuration file
 #CONFIG=/etc/influxdb/influxdb.conf
-CONFIG=/var/vcap/jobs/influxdb/config/influxdb.conf
+CONFIG=/var/vcap/jobs/JOB_NAME/config/influxdb.conf
 
 # PID file for the daemon - DEFINED ABOVE
 #PIDFILE=/var/run/influxdb/influxd.pid
