@@ -22,7 +22,7 @@ reporting-disabled = false
 
 [meta]
   # Where the metadata/raft database is stored
-  dir = "<%= p("influxdb.meta-dir") %>"
+  dir = "<%= p("influxdbOSCluster.meta-dir") %>"
 
   retention-autocreate = true
 
@@ -46,7 +46,7 @@ reporting-disabled = false
   # Controls if this node holds time series data shards in the cluster
   enabled = true
 
-  dir = "<%= p("influxdb.data-dir") %>"
+  dir = "<%= p("influxdbOSCluster.data-dir") %>"
 
   # These are the WAL settings for the storage engine >= 0.9.3
   wal-dir = "/var/vcap/store/influxdb/wal"
@@ -148,8 +148,8 @@ reporting-disabled = false
 
 [admin]
   enabled = true
-  bind-address = ":<%= p("influxdb.adminport") %>"
-  https-enabled = <%= p("influxdb.https-enabled") %>
+  bind-address = ":<%= p("influxdbOSCluster.adminport") %>"
+  https-enabled = <%= p("influxdbOSCluster.https-enabled") %>
   https-certificate = "/etc/ssl/influxdb.pem"
 
 ###
@@ -161,7 +161,7 @@ reporting-disabled = false
 
 [http]
   enabled = true
-  bind-address = ":<%= p("influxdb.httpport") %>"
+  bind-address = ":<%= p("influxdbOSCluster.httpport") %>"
   auth-enabled = false
   log-enabled = true
   write-tracing = false
