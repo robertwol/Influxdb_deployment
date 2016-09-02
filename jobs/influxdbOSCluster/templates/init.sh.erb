@@ -16,6 +16,14 @@ set -e -x
 # Command-line options that can be set in /etc/default/influxdb.  These will override
 # any config file values.
 
+
+export BOSHInstanceName = <%= spec.name %>
+export BOSHInstanceID =  <%= spec.id %>
+export BOSHClusterLead = <% spec.bootstrap %>
+export BOSHInstanceAddress = <%= spec.address %>
+export BOSHInstanceNetwork = <% spec.networks %>
+
+
 JOB_NAME=influxdb
 
 RUN_DIR=/var/vcap/sys/run/$JOB_NAME
