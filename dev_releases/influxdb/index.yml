@@ -80,4 +80,6 @@ builds:
     version: 0+dev.39
   e16796d8-ff44-48c1-a689-24451e40f226:
     version: 0+dev.40
+  adc1d04e-c767-4135-af38-d871f6880b9d:
+    version: 0+dev.41
 format-version: '2'
