@@ -1,0 +1,35 @@
+---
+packages:
+- name: golang
+  version: 7a1c64c8bb94097ad52b436e0ce2d2e550559c7f
+  fingerprint: 7a1c64c8bb94097ad52b436e0ce2d2e550559c7f
+  sha1: 11ddfd87837b6b88bf7c7a29783686f7a5053c3b
+  dependencies:
+  - golang1.4
+- name: golang1.4
+  version: b5619823d963ddb538cea9273e0f174033cc6c27
+  fingerprint: b5619823d963ddb538cea9273e0f174033cc6c27
+  sha1: 59aa5cfe46a4bb3a525b1e89b5b88245dde249e5
+  dependencies: []
+- name: influxdb
+  version: 6cb16f37f417745ac568b95f476e8aa58758d639
+  fingerprint: 6cb16f37f417745ac568b95f476e8aa58758d639
+  sha1: 7ba8af25dc485aa9afc781513a3d494cb80f5aee
+  dependencies: []
+jobs:
+- name: influxdb
+  version: 6a0466726043b9eb42909e289fde1ac089ac4499
+  fingerprint: 6a0466726043b9eb42909e289fde1ac089ac4499
+  sha1: 27cb8c9511c1f111b25fda98b3f8fa4e3a18acaf
+- name: influxdbOSCluster
+  version: 0acb1a3e1d7b0a7d50b0faa17853e25543d83c7e
+  fingerprint: 0acb1a3e1d7b0a7d50b0faa17853e25543d83c7e
+  sha1: d8c30b2bdb9a68354f30e1011cd2fb15dccdba63
+license:
+  version: 676c8daec0d50a3e22f6d824b64b6db752e13d6b
+  fingerprint: 676c8daec0d50a3e22f6d824b64b6db752e13d6b
+  sha1: 4a91508d33988f4b7f614c61f46dae43ea7247af
+commit_hash: 8ef9be35
+uncommitted_changes: false
+name: influxdb
+version: 0+dev.66
